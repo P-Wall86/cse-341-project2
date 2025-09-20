@@ -5,15 +5,14 @@
     "description": "Animals Information",
     "version": "1.0.0"
   },
-  "host": "project-2-2nm1.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/": {
       "get": {
-        "tags": ["Dogs"],
         "description": "",
         "responses": {
           "200": {
@@ -22,22 +21,103 @@
         }
       }
     },
-    "/Dogs/": {
+    "/Cats/": {
       "get": {
-        "tags": ["Dogs"],
-        "description": "Get all dogs",
+        "description": "",
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "tags": ["Dogs"],
-        "description": "Create a new dog",
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/Cats/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/Dogs/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -46,33 +126,25 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "pet name here"
+                  "example": "any"
                 },
                 "breed": {
-                  "example": "breed here"
+                  "example": "any"
                 },
                 "age": {
-                  "example": 5
+                  "example": "any"
                 },
                 "weightKg": {
-                  "example": 40
+                  "example": "any"
                 },
                 "vaccinated": {
-                  "example": true
+                  "example": "any"
                 },
                 "microchipped": {
-                  "example": false
+                  "example": "any"
                 },
                 "owner": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "example": "owner name here"
-                    },
-                    "phone": {
-                      "example": "phone number here"
-                    }
-                  }
+                  "example": "any"
                 }
               }
             }
@@ -90,11 +162,7 @@
     },
     "/Dogs/{id}": {
       "get": {
-        "tags": ["Dogs"],
-        "description": "Get a dog by ID",
-        "produces": [
-          "application/json"
-        ],
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -106,12 +174,17 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "tags": ["Dogs"],
-        "description": "Update a dog by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -126,33 +199,25 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "pet name here"
+                  "example": "any"
                 },
                 "breed": {
-                  "example": "breed here"
+                  "example": "any"
                 },
                 "age": {
-                  "example": 5
+                  "example": "any"
                 },
                 "weightKg": {
-                  "example": 40
+                  "example": "any"
                 },
                 "vaccinated": {
-                  "example": true
+                  "example": "any"
                 },
                 "microchipped": {
-                  "example": false
+                  "example": "any"
                 },
                 "owner": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "example": "owner name here"
-                    },
-                    "phone": {
-                      "example": "number here"
-                    }
-                  }
+                  "example": "any"
                 }
               }
             }
@@ -164,12 +229,14 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "tags": ["Dogs"],
-        "description": "Delete a dog by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -184,6 +251,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

@@ -1,9 +1,10 @@
 const router = require('express').Router();
 
 router.get ('/', (req, res) => {
-    res.send('Te manda saludos el chancho peludo.');
+    res.send('Yo.');
 });
 
+router.use('/Cats', require('./Cats'));
 router.use('/Dogs', require('./Dogs'));
 
 module.exports = router;

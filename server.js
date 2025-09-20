@@ -21,12 +21,13 @@ app
 
 
 mongodb.initDb((err) => {
+    (console.log('Database initialized!'));
     if (err) {
         console.log(err);
     }
     else {
         app.listen(port, () => {
-            console.log(`Todo en orden en el port ${port}`)
+            console.log(`Server listening and running on port ${port}`)
         });
     }
 });

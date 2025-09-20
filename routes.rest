@@ -1,10 +1,17 @@
 @dogID = replace_me
+@catID = replace_me
 
 ### Get all Dogs
 GET http://localhost:3000/Dogs
 
+### Get all Cats
+GET http://localhost:3000/Cats
+
 ### Get a Dog by ID
 GET http://localhost:3000/Dogs/{{dogID}}
+
+### Get a Cat by ID
+GET http://localhost:3000/Cats/{{catID}}
 
 ### Create a new Dog
 POST http://localhost:3000/Dogs
@@ -21,6 +28,17 @@ Content-Type: application/json
     "name": "Manuel Caporaso",
     "phone": "123-4567"
     }
+}
+
+### Create a new Cat
+POST http://localhost:3000/Cats
+Content-Type: application/json
+
+{
+  "name": "Spencer",
+  "age": 1,
+  "color": "Black and white",
+  "indoor": false
 }
 
 ### Update a Dog:
@@ -40,5 +58,19 @@ Content-Type: application/json
   }
 }
 
+### Update a Cat:
+PUT http://localhost:3000/Cats/{{catID}}
+Content-Type: application/json
+
+{
+  "name": "Cannoli",
+  "age": 2,
+  "color": "Orange",
+  "indoor": true
+}
+
 ### Delete a Dog:
 DELETE http://localhost:3000/Dogs/{{dogID}}
+
+### Delete a Cat:
+DELETE http://localhost:3000/Cats/{{catID}}
