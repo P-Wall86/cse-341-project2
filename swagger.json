@@ -5,10 +5,10 @@
     "description": "Animals Information",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "project-2-2nm1.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
