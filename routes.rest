@@ -17,8 +17,10 @@ Content-Type: application/json
   "weightKg": 40,
   "vaccinated": true,
   "microchipped": true,
-  "ownerName": "Manuel Caporaso",
-  "ownerPhone": "123-4567"
+  "owner": {
+    "name": "Manuel Caporaso",
+    "phone": "123-4567"
+    }
 }
 
 ### Update a Dog:
@@ -32,8 +34,10 @@ Content-Type: application/json
   "weightKg": 56,
   "vaccinated": true,
   "microchipped": false,
-  "ownerName": "Manuel Caporaso",
-  "ownerPhone": "123-4567"
+  "owner": {
+    "name": "Manuel Caporaso",
+    "phone": "123-4567"
+  }
 }
 
 ### Delete a Dog:
