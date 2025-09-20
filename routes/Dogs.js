@@ -24,7 +24,7 @@ router.post(
         body('vaccinated').isBoolean().withMessage('Vaccinated must be true or false'),
         body('microchipped').isBoolean().withMessage('Microchipped must be true or false'),
         body('owner.name').notEmpty().withMessage("The owner's name is required"),
-        body('owner.phone').isNumeric().withMessage('The phone number must be numeric').notEmpty().withMessage("The owner's phone number is required")
+        body('owner.phone').matches(/^\d{3}-\d{4}$/).withMessage("The owner's phone number must be in the format XXX-XXXX").notEmpty().withMessage("The owner's phone number is required")
     ],
     validate,
     dogsController.createDog
@@ -40,7 +40,7 @@ router.put(
         body('vaccinated').isBoolean().withMessage('Vaccinated must be true or false'),
         body('microchipped').isBoolean().withMessage('Microchipped must be true or false'),
         body('owner.name').notEmpty().withMessage("The owner's name is required"),
-        body('owner.phone').isNumeric().withMessage('The phone number must be numeric').notEmpty().withMessage("The owner's phone number is required.")
+        body('owner.phone').matches(/^\d{3}-\d{4}$/).withMessage("The owner's phone number must be in the format XXX-XXXX").notEmpty().withMessage("The owner's phone number is required.")
     ],
     validate,
     dogsController.updateDog
