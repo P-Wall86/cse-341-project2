@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body, param } = require('express-validator');
 const validate = require('../middleware/validator').validate;
+const  {IsAuthenticated} = require ("../middleware/authenticate");
 
 const catsController = require('../controllers/Cats');
 
@@ -16,6 +17,7 @@ router.get(
 
 router.post(
     '/',
+    IsAuthenticated,
     [
         body('name').notEmpty().withMessage('A name is required'),
         body('age').isInt({ min: 0 }).withMessage('Age must be a positive number'),
@@ -28,6 +30,7 @@ router.post(
 
 router.put(
     '/:id',
+    IsAuthenticated,
     [
         body('name').notEmpty().withMessage('A name is required'),
         body('age').isInt({ min: 0 }).withMessage('Age must be a positive number'),
@@ -40,6 +43,7 @@ router.put(
 
 router.delete(
     '/:id',
+    IsAuthenticated,
     [param('id').isMongoId().withMessage('Invalid ID format.')],
     validate,
     catsController.deleteCat

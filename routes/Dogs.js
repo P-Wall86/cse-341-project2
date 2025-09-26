@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body, param } = require('express-validator');
 const validate = require('../middleware/validator').validate;
+const  {IsAuthenticated} = require ("../middleware/authenticate");
 
 const dogsController = require('../controllers/Dogs');
 
@@ -16,6 +17,7 @@ router.get(
 
 router.post(
     '/',
+    IsAuthenticated,
     [
         body('name').notEmpty().withMessage('A name is required'),
         body('breed').notEmpty().withMessage('Breed is required'),
@@ -32,6 +34,7 @@ router.post(
 
 router.put(
     '/:id',
+    IsAuthenticated,
     [
         body('name').notEmpty().withMessage('A name is required'),
         body('breed').notEmpty().withMessage('Breed is required'),
@@ -48,6 +51,7 @@ router.put(
 
 router.delete(
     '/:id',
+    IsAuthenticated,
     [param('id').isMongoId().withMessage('Invalid ID format.')],
     validate,
     dogsController.deleteDog
