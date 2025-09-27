@@ -29,6 +29,10 @@ app.use(
     })
 );
 
+console.log("ClientID:", process.env.GITHUB_CLIENT_ID);
+console.log("ClientSecret:", process.env.GITHUB_CLIENT_SECRET ? "SET" : "MISSING");
+console.log("CallbackURL:", process.env.CALLBACK_URL);
+
 app.use(passport.initialize());
 app.use(passport.session());
 
