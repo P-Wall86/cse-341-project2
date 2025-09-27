@@ -29,10 +29,6 @@ app.use(
     })
 );
 
-console.log("ClientID:", process.env.GITHUB_CLIENT_ID);
-console.log("ClientSecret:", process.env.GITHUB_CLIENT_SECRET ? "SET" : "MISSING");
-console.log("CallbackURL:", process.env.CALLBACK_URL);
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -59,7 +55,7 @@ passport.deserializeUser((obj, done) => {
 app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
 
 app.get('/github/callback', passport.authenticate('github', {
-failureRedirect: '/api-docs', session: false}),
+failureRedirect: '/api-docs'}),
 (req, res) => {
 req.session.user = req.user,
 res.redirect ('/');
