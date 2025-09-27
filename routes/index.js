@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 router.use('/Cats', require('./Cats'));
 router.use('/Dogs', require('./Dogs'));
 
-router.get('/login', passport.authenticate('github'));
+router.get('/login', passport.authenticate('github'), (req, res) => {});
 
 router.get('/logout', function (req, res, next) {
     req.logout(function (err) {
