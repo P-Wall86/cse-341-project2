@@ -52,14 +52,16 @@ passport.deserializeUser((obj, done) => {
     done(null, obj);
 });
 
-app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
+app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out") });
 
-app.get('/github/callback', passport.authenticate('github', {
-failureRedirect: '/api-docs'}),
-(req, res) => {
-req.session.user = req.user,
-res.redirect ('/');
-});
+app.get('/github/callback', passport.authenticate('github',
+    {
+        failureRedirect: '/api-docs'
+    }),
+    (req, res) => {
+        req.session.user = req.user;
+            res.redirect('/');
+    });
 
 app.use("/", require("./routes/"));
 
